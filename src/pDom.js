@@ -18,5 +18,10 @@ window.pDom = {
     appendNode(parentNode, node){
         parentNode.appendChild(node);
     },
+    // 添加一个父节点
+    wrapNode(node, parent){
+        pDom.beforeNode(node, parent); // 将父节点插入到node的前面
+        pDom.appendNode(parent, node); // 将 node 当子结点插入 parent，这样本来的地方就没有了
+    },
 
 }

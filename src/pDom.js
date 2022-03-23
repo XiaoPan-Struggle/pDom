@@ -14,5 +14,9 @@ window.pDom = {
     beforeNode(node, newNode){
         node.parentNode.insertBefore(node, newNode);
     },
+    // 插入一个子结点
+    appendNode(parentNode, node){
+        parentNode.appendChild(node);
+    },
 
 }

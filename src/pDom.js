@@ -57,6 +57,14 @@ window.pDom = {
         } else {
             node.textContent = string;
         }
+    },
+    // 获取节点中的文本
+    getText(node){
+        if ("innerText" in node){
+            return node.innerText;
+        } else {
+            return node.textContent;
+        }
     }
 
 

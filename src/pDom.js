@@ -110,5 +110,9 @@ window.pDom = {
         has(node, className){
             return node.classList.contains(className);
         }
+    },
+    // 事件
+    on(node, eventName, fn, isBubble = false){
+        node.addEventListener(eventName, fn, isBubble);
     }
 };

@@ -101,6 +101,10 @@ window.pDom = {
         // 添加 class
         add(node, className){
             node.classList.add(className);
+        },
+        // 删除单个class
+        remove(node, className){
+            node.classList.remove(className);
         }
     }
 };

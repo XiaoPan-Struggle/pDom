@@ -37,6 +37,16 @@ window.pDom = {
             firstChild = node.firstChild;
         }
         return nodeArr; // 返回所有移除的节点，包括文本节点
+    },
+    // 设置节点的属性名和属性值以及获取属性名，根据参数变化而变化
+    nodeAttr(node, attr, value){
+        if (arguments.length === 3){
+            node.setAttribute(attr, value);
+        }else if (arguments.length === 2){
+            return node.getAttribute(attr);
+        }else {
+            throw "Only tow or three parameters can be used in a nodeAttr(node, attr, value)"
+        }
     }
 
 };

@@ -111,8 +111,12 @@ window.pDom = {
             return node.classList.contains(className);
         }
     },
-    // 事件
+    // 绑定事件
     on(node, eventName, fn, isBubble = false){
         node.addEventListener(eventName, fn, isBubble);
+    },
+    // 移除事件
+    off(node, eventName, fn){
+        node.removeEventListener(eventName, fn);
     }
 };

@@ -105,6 +105,10 @@ window.pDom = {
         // 删除单个class
         remove(node, className){
             node.classList.remove(className);
+        },
+        // 判断是否含有 class
+        has(node, className){
+            return node.classList.contains(className);
         }
     }
 };

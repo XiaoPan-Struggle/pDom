@@ -47,6 +47,17 @@ window.pDom = {
         }else {
             throw "Only tow or three parameters can be used in a nodeAttr(node, attr, value)"
         }
+    },
+    // 设置节点中的文本
+    setText(node, string){
+        // innerText ie 上的, textContent Chrome / firefox都兼容
+        // 防御性编程
+        if ("innerText" in node){
+            node.innerText = string;
+        } else {
+            node.textContent = string;
+        }
     }
+
 
 };

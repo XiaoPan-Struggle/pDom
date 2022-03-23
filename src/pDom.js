@@ -70,7 +70,10 @@ window.pDom = {
     setHTML(node, string){
         node.innerHTML = string;
     },
-
+    // 获取节点中的HTML
+    getHTML(node){
+        return node.innerHTML;
+    },
 
 
 };

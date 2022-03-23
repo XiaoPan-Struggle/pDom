@@ -95,5 +95,12 @@ window.pDom = {
         }else {
             return node.style;
         }
+    },
+    // class区
+    class: {
+        // 添加 class
+        add(node, className){
+            node.classList.add(className);
+        }
     }
 };

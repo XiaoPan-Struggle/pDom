@@ -75,7 +75,7 @@ window.pDom = {
         return node.innerHTML;
     },
     // 给节点添加样式
-    setStyle: function (node, object) {
+    setStyle(node, object){
         if (object instanceof Object) {
             const keys = Reflect.ownKeys(object);
             for (let i = 0; i < keys.length; i++) {
@@ -86,5 +86,14 @@ window.pDom = {
             throw "The second parameter must be an Object"
         }
     },
-
+    // 获取节点的内嵌样式属性
+    getStyle(node, ...keys){
+        let styleObj = {};
+        if (keys && arguments.length >= 2){
+            keys.forEach(key => styleObj[key] = node.style[key]);
+            return styleObj;
+        }else {
+            return node.style;
+        }
+    }
 };

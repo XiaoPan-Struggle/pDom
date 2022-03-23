@@ -23,5 +23,11 @@ window.pDom = {
         pDom.beforeNode(node, parent); // 将父节点插入到node的前面
         pDom.appendNode(parent, node); // 将 node 当子结点插入 parent，这样本来的地方就没有了
     },
+    // 删除某节点
+    removeNode(node){
+        node.parentNode.removeChild(node); // 让自己的父节点删除自己
+        return node;
+    },
+    //
 
 }

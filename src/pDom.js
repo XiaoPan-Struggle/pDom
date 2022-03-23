@@ -65,7 +65,12 @@ window.pDom = {
         } else {
             return node.textContent;
         }
-    }
+    },
+    // 设置节点中的HTML
+    setHTML(node, string){
+        node.innerHTML = string;
+    },
+
 
 
 };

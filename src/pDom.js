@@ -74,6 +74,17 @@ window.pDom = {
     getHTML(node){
         return node.innerHTML;
     },
-
+    // 给节点添加样式
+    setStyle: function (node, object) {
+        if (object instanceof Object) {
+            const keys = Reflect.ownKeys(object);
+            for (let i = 0; i < keys.length; i++) {
+                // for in 会遍历原型上可枚举的属性，所以这里使用 Reflect
+                node.style[keys[i]] = Reflect.get(object, keys[i]);
+            }
+        } else {
+            throw "The second parameter must be an Object"
+        }
+    },
 
 };

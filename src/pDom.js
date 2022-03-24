@@ -151,5 +151,11 @@ window.pDom = {
             n = n.previousSibling;
         }
         return n;
+    },
+    // 遍历节点
+    eachNode(nodeList, fn){
+        for (let i = 0; i < nodeList.length; i++) {
+            fn.call(undefined, nodeList[i])
+        }
     }
 };

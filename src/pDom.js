@@ -118,5 +118,10 @@ window.pDom = {
     // 移除事件
     off(node, eventName, fn){
         node.removeEventListener(eventName, fn);
-    }
+    },
+    // 获取所有节点
+    findAll(selector, scope = document){
+        return scope.querySelectorAll(selector);
+    },
+
 };

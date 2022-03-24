@@ -126,5 +126,9 @@ window.pDom = {
     // 获取父节点
     findParent(node) {
         return node.parentNode;
+    },
+    // 获取子结点
+    findChildren(node) {
+        return node.children;
     }
 };

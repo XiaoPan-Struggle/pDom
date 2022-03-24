@@ -134,5 +134,14 @@ window.pDom = {
     // 获取兄弟节点
     findSiblings(node) {
         return Array.from(node.parentNode.children).filter(n => n !== node);
+    },
+    // 获取下一个节点
+    next(node){
+        // nodeType: 1 是 节点， 3 是 文本
+        let n = node.nextSibling; // 包含文本节点
+        while (n && n.nodeType === 3){
+            n = n.nextSibling;
+        }
+        return n;
     }
 };

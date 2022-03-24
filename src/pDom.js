@@ -39,43 +39,43 @@ window.pDom = {
         return nodeArr; // 返回所有移除的节点，包括文本节点
     },
     // 设置节点的属性名和属性值以及获取属性名，根据参数变化而变化
-    nodeAttr(node, attr, value){
-        if (arguments.length === 3){
+    nodeAttr(node, attr, value) {
+        if (arguments.length === 3) {
             node.setAttribute(attr, value);
-        }else if (arguments.length === 2){
+        } else if (arguments.length === 2) {
             return node.getAttribute(attr);
-        }else {
-            throw "Only tow or three parameters can be used in a nodeAttr(node, attr, value)"
+        } else {
+            throw "Only tow or three parameters can be used in a nodeAttr(node, attr, value)";
         }
     },
     // 设置节点中的文本
-    setText(node, string){
+    setText(node, string) {
         // innerText ie 上的, textContent Chrome / firefox都兼容
         // 防御性编程
-        if ("innerText" in node){
+        if ("innerText" in node) {
             node.innerText = string;
         } else {
             node.textContent = string;
         }
     },
     // 获取节点中的文本
-    getText(node){
-        if ("innerText" in node){
+    getText(node) {
+        if ("innerText" in node) {
             return node.innerText;
         } else {
             return node.textContent;
         }
     },
     // 设置节点中的HTML
-    setHTML(node, string){
+    setHTML(node, string) {
         node.innerHTML = string;
     },
     // 获取节点中的HTML
-    getHTML(node){
+    getHTML(node) {
         return node.innerHTML;
     },
     // 给节点添加样式
-    setStyle(node, object){
+    setStyle(node, object) {
         if (object instanceof Object) {
             const keys = Reflect.ownKeys(object);
             for (let i = 0; i < keys.length; i++) {
@@ -83,45 +83,48 @@ window.pDom = {
                 node.style[keys[i]] = Reflect.get(object, keys[i]);
             }
         } else {
-            throw "The second parameter must be an Object"
+            throw "The second parameter must be an Object";
         }
     },
     // 获取节点的内嵌样式属性
-    getStyle(node, ...keys){
+    getStyle(node, ...keys) {
         let styleObj = {};
-        if (keys && arguments.length >= 2){
+        if (keys && arguments.length >= 2) {
             keys.forEach(key => styleObj[key] = node.style[key]);
             return styleObj;
-        }else {
+        } else {
             return node.style;
         }
     },
     // class区
     class: {
         // 添加 class
-        add(node, className){
+        add(node, className) {
             node.classList.add(className);
         },
         // 删除单个class
-        remove(node, className){
+        remove(node, className) {
             node.classList.remove(className);
         },
         // 判断是否含有 class
-        has(node, className){
+        has(node, className) {
             return node.classList.contains(className);
         }
     },
     // 绑定事件
-    on(node, eventName, fn, isBubble = false){
+    on(node, eventName, fn, isBubble = false) {
         node.addEventListener(eventName, fn, isBubble);
     },
     // 移除事件
-    off(node, eventName, fn){
+    off(node, eventName, fn) {
         node.removeEventListener(eventName, fn);
     },
     // 获取所有节点
-    findAll(selector, scope = document){
+    findAll(selector, scope = document) {
         return scope.querySelectorAll(selector);
     },
-
+    // 获取父节点
+    findParent(node) {
+        return node.parentNode;
+    }
 };

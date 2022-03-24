@@ -130,5 +130,9 @@ window.pDom = {
     // 获取子结点
     findChildren(node) {
         return node.children;
+    },
+    // 获取兄弟节点
+    findSiblings(node) {
+        return Array.from(node.parentNode.children).filter(n => n !== node);
     }
 };

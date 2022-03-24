@@ -157,5 +157,14 @@ window.pDom = {
         for (let i = 0; i < nodeList.length; i++) {
             fn.call(undefined, nodeList[i])
         }
+    },
+    // 获取节点在子结点中的位置
+    nodeIndex(node){
+        const list = pDom.children(node.parentNode);
+        let i;
+        for ( i = 0; i < list.length; i++) {
+            if (list[i] === node) break;
+        }
+        return i;
     }
 };
